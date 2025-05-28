@@ -36,6 +36,13 @@ app.get("/", (req, res) => {
 
 // Middleware
 app.use(cors());
+
+
+app.use(cors({
+  origin: "http://internship-hub-frontend-git-main-maryam-akbars-projects.vercel.app", // your deployed frontend domain
+  credentials: true,
+}));
+
 app.use(bodyParser.json());
 app.use(express.json());
 app.use("/uploads", express.static(path.join(__dirname, "uploads"))); // Serve image uploads
