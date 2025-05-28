@@ -13,7 +13,7 @@ const applicationRoutes = require("./routes/applicationRoutes");
 const profileRoutes = require("./routes/profileRoutes");
 const remarkRoutes = require('./routes/remarkRoutes'); // Import the remark routes
 // app.js or server.js
-
+ 
 
 
 dotenv.config();
@@ -28,6 +28,10 @@ const io = new Server(server, {
     origin: "http://localhost:5173", // your frontend
     methods: ["GET", "POST"],
   },
+});
+
+app.get("/", (req, res) => {
+  res.send("Welcome to the backend server!");
 });
 
 // Middleware
