@@ -22,12 +22,14 @@ connectDB(); // Connect MongoDB
 const app = express();
 const server = http.createServer(app);
 
-// Set up Socket.io with CORS support
 const io = new Server(server, {
   cors: {
-    origin: "http://localhost:5173", // your frontend
+    origin: [
+      "http://localhost:5173", 
+      "https://internship-hub-frontend.vercel.app/", 
+    ],
     methods: ["GET", "POST"],
-  },
+  },
 });
 
 app.get("/", (req, res) => {
